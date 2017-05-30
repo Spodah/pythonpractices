@@ -1,3 +1,4 @@
+#Assignment did not specify how to handle multiple attempts to guess the same character
 TRIES = 10
 OFFER_NEXT_GAME = 'Would you like to have another try? (y/n)\n'
 GAME_WON_PHRASE = 'Congratulations!'
@@ -110,7 +111,7 @@ def start_new_game(word, max_tries):
     	obfuscated = (obfuscate(word, guesses))
     	if(obfuscated == word):
     		print(GAME_WON_PHRASE)
-    		new_game = raw_input(OFFER_NEXT_GAME)
+    		new_game = input(OFFER_NEXT_GAME)
     		if (new_game == "y" or new_game == "Y"):
     			return True
     		elif (new_game == "n" or new_game == "N"):
@@ -118,13 +119,13 @@ def start_new_game(word, max_tries):
     	print(obfuscated)
     	print(LETTERS_LEFT)
     	print(letters)
-    	guess = raw_input(INPUT_PROMPT)
+    	guess = input(INPUT_PROMPT)
+    	guess = guess.upper()
     	if(len(guess)>1):
     		print(INVALID_INPUT)
     	elif(guess.isalpha == False):
     		print(INVALID_INPUT)
     	else:
-    		guess = guess.upper()
     		letters = letters.replace(guess, "")
     		guesses = guesses + guess
     		if(word.find(guess) == -1):
