@@ -44,10 +44,10 @@ def get_bulls_and_cows(cipher, guess):
     # remove the pass statement and put your code here
     bulls = 0
     cows = 0
-    for x in range(0, 3):
+    for x in range(0, 4):
     	if(cipher[x] == guess[x]): bulls+=1
     	else:
-    		for y in range(0, 3):
+    		for y in range(0, 4):
     			if(cipher[x] == guess[y]): cows+=1
     return (bulls, cows)
 
@@ -97,6 +97,15 @@ def play_game():
     # Congrats, You win
 
     # remove the pass statement and put your code here
-    pass
+    cipher = generate_cipher()
+    output_string = ""
+    while True:
+    	guess = str(input("Enter your guess without spaces: \n"))
+    	guess_array = [int(guess[0]), int(guess[1]), int(guess[2]), int(guess[3])]
+    	bulls, cows = get_bulls_and_cows(cipher, guess_array)
+    	output_string = output_string + str(guess) + " bulls: " + str(bulls) + ", cows: " + str(cows) + "\n"
+    	print(output_string)
+    	if(bulls == 4): break
+    print("Congrats, You win")
 
-print(generate_cipher())
+play_game()
