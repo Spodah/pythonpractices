@@ -2,14 +2,6 @@ import random
 
 
 def generate_cipher():
-    """
-    returns a random sequence of 4 unique digits as python list
-    e.g.
-    print(generate_cipher()) -> [5, 2, 7, 3]
-    print(generate_cipher()) -> [5, 0, 3, 9]
-    print(generate_cipher()) -> [3, 4, 8, 6]
-    """
-    # remove the pass statement and put your code here
     a1 = random.randint(0, 9)
     a2 = (a1 + random.randint(1, 9))%10
     a3 = (a1 + random.randint(1, 8))%10
@@ -25,7 +17,6 @@ def generate_cipher():
 
 def get_bulls_and_cows(cipher, guess):
     assert len(cipher) == len(guess) == 4, 'cipher and guess must be lists of length 4'
-    # remove the pass statement and put your code here
     bulls = 0
     cows = 0
     for x in range(0, 4):
